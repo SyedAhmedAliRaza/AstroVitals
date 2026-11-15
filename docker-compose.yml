@@ -1,0 +1,92 @@
+name: astrovitals
+
+services:
+  # ─── Tiger Data: TimescaleDB + pgvector ─────────────────────────────
+  tigerdata:
+    image: timescale/timescaledb:latest-pg16
+    container_name: astrovitals-tigerdata
+    environment:
+      POSTGRES_DB: astrovitals
+      POSTGRES_USER: astrovitals_user
+      POSTGRES_PASSWORD: ${TIGER_DATA_PASSWORD:-astrovitals_secure_2026}
+    ports:
+      - "5432:5432"
+    volumes:
+      - tigerdata_volume:/var/lib/postgresql/data
+      - ./backend/data/init-extensions.sql:/docker-entrypoint-initdb.d/01-extensions.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U astrovitals_user -d astrovitals"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ─── FastAPI Backend ─────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: astrovitals-backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://astrovitals_user:${TIGER_DATA_PASSWORD:-astrovitals_secure_2026}@tigerdata:5432/astrovitals
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      AUTH0_DOMAIN: ${AUTH0_DOMAIN:-}
+      AUTH0_AUDIENCE: ${AUTH0_AUDIENCE:-}
+      AUTH0_CLIENT_ID: ${AUTH0_CLIENT_ID:-}
+      AUTH0_CLIENT_SECRET: ${AUTH0_CLIENT_SECRET:-}
+      TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID:-}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN:-}
+      TWILIO_FROM_NUMBER: ${TWILIO_FROM_NUMBER:-}
+      TWILIO_TO_NUMBER: ${TWILIO_TO_NUMBER:-}
+      NASA_DONKI_API_KEY: ${NASA_DONKI_API_KEY:-DEMO_KEY}
+      DEMO_MODE: ${DEMO_MODE:-true}
+    ports:
+      - "8000:8000"
+    depends_on:
+      tigerdata:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ─── Next.js Frontend ───────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: astrovitals-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://backend:8000}
+      AUTH0_SECRET: ${AUTH0_SECRET:-}
+      AUTH0_BASE_URL: ${AUTH0_BASE_URL:-http://localhost:3000}
+      AUTH0_ISSUER_BASE_URL: ${AUTH0_ISSUER_BASE_URL:-}
+      AUTH0_CLIENT_ID: ${AUTH0_CLIENT_ID:-}
+      AUTH0_CLIENT_SECRET: ${AUTH0_CLIENT_SECRET:-}
+      NEXT_PUBLIC_DEMO_MODE: ${DEMO_MODE:-true}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # ─── Caddy Reverse Proxy (TLS + GoDaddy Domain) ─────────────────────
+  caddy:
+    image: caddy:2-alpine
+    container_name: astrovitals-caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+
+volumes:
+  tigerdata_volume:
+    driver: local
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local

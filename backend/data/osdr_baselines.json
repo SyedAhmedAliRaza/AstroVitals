@@ -1,0 +1,172 @@
+{
+  "datasets": [
+    {
+      "id": "OSD-575",
+      "title": "Inspiration4 Blood Serum Biomarker Reference Ranges",
+      "description": "Pre-flight vs post-flight deltas for blood serum cytokines and cardiac markers from the SpaceX Inspiration4 mission (3-day LEO).",
+      "markers": {
+        "IL6_pg_ml": {
+          "name": "Interleukin-6 (IL-6)",
+          "unit": "pg/mL",
+          "preflight_mean": 1.5,
+          "preflight_range": [0.5, 3.2],
+          "postflight_mean": 8.7,
+          "postflight_range": [4.1, 14.9],
+          "delta_percent": 480,
+          "notes": "Acute inflammatory marker; elevated post-flight due to fluid shifts and immune activation."
+        },
+        "TNFalpha_pg_ml": {
+          "name": "Tumor Necrosis Factor-alpha (TNF-α)",
+          "unit": "pg/mL",
+          "preflight_mean": 1.2,
+          "preflight_range": [0.6, 2.0],
+          "postflight_mean": 3.1,
+          "postflight_range": [1.8, 5.4],
+          "delta_percent": 158,
+          "notes": "Pro-inflammatory cytokine; increases correlate with spaceflight duration."
+        },
+        "CRP_mg_L": {
+          "name": "C-Reactive Protein (CRP)",
+          "unit": "mg/L",
+          "preflight_mean": 0.8,
+          "preflight_range": [0.1, 2.5],
+          "postflight_mean": 4.3,
+          "postflight_range": [1.2, 9.8],
+          "delta_percent": 437,
+          "notes": "Systemic inflammation marker; sensitive to re-entry stress."
+        },
+        "Troponin_I_ng_L": {
+          "name": "Cardiac Troponin I",
+          "unit": "ng/L",
+          "preflight_mean": 3.0,
+          "preflight_range": [1.0, 6.0],
+          "postflight_mean": 8.5,
+          "postflight_range": [4.0, 15.0],
+          "delta_percent": 183,
+          "notes": "Cardiac biomarker; transient elevation may indicate myocardial stress from fluid redistribution."
+        },
+        "BNP_pg_ml": {
+          "name": "B-type Natriuretic Peptide (BNP)",
+          "unit": "pg/mL",
+          "preflight_mean": 18.0,
+          "preflight_range": [5.0, 35.0],
+          "postflight_mean": 52.0,
+          "postflight_range": [22.0, 95.0],
+          "delta_percent": 189,
+          "notes": "Ventricular stretch marker; elevated due to cephalad fluid shift in microgravity."
+        }
+      }
+    },
+    {
+      "id": "OSD-656",
+      "title": "Inspiration4 Urine Inflammation Panel",
+      "description": "Urine cytokine and chemokine panel comparing normal Earth ranges with spaceflight-shifted values from the Inspiration4 mission.",
+      "markers": {
+        "MCP1_pg_ml": {
+          "name": "Monocyte Chemoattractant Protein-1 (MCP-1/CCL2)",
+          "unit": "pg/mL",
+          "normal_range": [50, 200],
+          "spaceflight_shifted_range": [180, 520],
+          "notes": "Chemokine driving monocyte recruitment; urinary elevation reflects systemic immune activation."
+        },
+        "IL8_pg_ml": {
+          "name": "Interleukin-8 (IL-8/CXCL8)",
+          "unit": "pg/mL",
+          "normal_range": [2, 15],
+          "spaceflight_shifted_range": [12, 65],
+          "notes": "Neutrophil chemoattractant; urinary levels elevated correlating with renal stress."
+        },
+        "VEGF_pg_ml": {
+          "name": "Vascular Endothelial Growth Factor (VEGF)",
+          "unit": "pg/mL",
+          "normal_range": [20, 80],
+          "spaceflight_shifted_range": [60, 210],
+          "notes": "Angiogenic factor; elevated in response to endothelial shear stress changes."
+        },
+        "IP10_pg_ml": {
+          "name": "Interferon gamma-induced Protein 10 (IP-10/CXCL10)",
+          "unit": "pg/mL",
+          "normal_range": [5, 40],
+          "spaceflight_shifted_range": [35, 120],
+          "notes": "Th1 chemokine marker; indicator of interferon-driven immune response."
+        },
+        "IL1beta_pg_ml": {
+          "name": "Interleukin-1 beta (IL-1β)",
+          "unit": "pg/mL",
+          "normal_range": [0.1, 1.5],
+          "spaceflight_shifted_range": [1.0, 6.5],
+          "notes": "Pyrogenic cytokine; urinary elevation suggests inflammasome activation."
+        }
+      }
+    },
+    {
+      "id": "OSD-53",
+      "title": "Whole-Blood Gene Expression Markers During Spaceflight",
+      "description": "Key genes showing significant differential expression in astronaut whole-blood samples during ISS missions.",
+      "upregulated_genes": [
+        {
+          "gene": "CXCL8",
+          "fold_change": 3.2,
+          "function": "Neutrophil chemotaxis and acute inflammatory signaling"
+        },
+        {
+          "gene": "S100A8",
+          "fold_change": 2.8,
+          "function": "Damage-associated molecular pattern (DAMP); innate immune activation"
+        },
+        {
+          "gene": "DEFA4",
+          "fold_change": 4.1,
+          "function": "Alpha-defensin; antimicrobial peptide reflecting immune priming"
+        },
+        {
+          "gene": "MMP9",
+          "fold_change": 2.5,
+          "function": "Matrix metalloproteinase; tissue remodeling and extracellular matrix degradation"
+        },
+        {
+          "gene": "HIF1A",
+          "fold_change": 1.9,
+          "function": "Hypoxia-inducible factor; oxygen-sensing transcription factor"
+        }
+      ],
+      "downregulated_genes": [
+        {
+          "gene": "CD3D",
+          "fold_change": -2.1,
+          "function": "T-cell receptor complex component; adaptive immunity"
+        },
+        {
+          "gene": "IL7R",
+          "fold_change": -1.8,
+          "function": "IL-7 receptor; critical for T-cell homeostasis and survival"
+        },
+        {
+          "gene": "GZMB",
+          "fold_change": -2.3,
+          "function": "Granzyme B; cytotoxic T-cell and NK-cell killing"
+        },
+        {
+          "gene": "CCR7",
+          "fold_change": -1.6,
+          "function": "Chemokine receptor guiding lymphocyte homing to lymph nodes"
+        },
+        {
+          "gene": "TCF7",
+          "fold_change": -1.5,
+          "function": "T-cell factor; transcription factor for T-cell differentiation"
+        }
+      ]
+    }
+  ],
+  "reference_thresholds": {
+    "heart_rate_bpm": {"nominal": [55, 85], "caution": [45, 100], "critical_low": 40, "critical_high": 120},
+    "systolic_bp_mmHg": {"nominal": [100, 130], "caution": [90, 145], "critical_low": 85, "critical_high": 160},
+    "diastolic_bp_mmHg": {"nominal": [60, 85], "caution": [55, 95], "critical_low": 50, "critical_high": 100},
+    "spo2_percent": {"nominal": [96, 100], "caution": [93, 100], "critical_low": 90, "critical_high": null},
+    "core_temp_celsius": {"nominal": [36.1, 37.5], "caution": [35.5, 38.0], "critical_low": 35.0, "critical_high": 39.0},
+    "radiation_msv_day": {"nominal": [0.0, 1.0], "caution": [1.0, 2.5], "critical_high": 5.0},
+    "blood_sugar_mgdl": {"nominal": [70, 140], "caution": [60, 180], "critical_low": 50, "critical_high": 250},
+    "hrv_ms": {"nominal": [30, 80], "caution": [20, 90], "critical_low": 10}
+  }
+}

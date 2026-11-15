@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --space-dark: #0a0e1a;
+  --space-navy: #111827;
+  --space-blue: #1e3a5f;
+  --astro-green: #10b981;
+  --astro-amber: #f59e0b;
+  --astro-red: #ef4444;
+  --astro-cyan: #06b6d4;
+  --astro-purple: #8b5cf6;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--space-dark);
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Star field background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+      1px 1px at 10% 20%,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 30% 70%,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 50% 40%,
+      rgba(255, 255, 255, 0.5) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 70% 10%,
+      rgba(255, 255, 255, 0.35) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 90% 80%,
+      rgba(255, 255, 255, 0.25) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 15% 55%,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 85% 35%,
+      rgba(6, 182, 212, 0.4) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 45% 90%,
+      rgba(139, 92, 246, 0.3) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 65% 60%,
+      rgba(255, 255, 255, 0.45) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 25% 85%,
+      rgba(16, 185, 129, 0.3) 0%,
+      transparent 100%
+    );
+  animation: starDrift 120s linear infinite;
+}
+
+@keyframes starDrift {
+  0% {
+    background-position:
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+  100% {
+    background-position:
+      100% 50%,
+      -50% 100%,
+      50% -50%,
+      -100% 50%,
+      50% 100%,
+      100% -50%,
+      -50% 50%,
+      50% 50%,
+      -100% 100%,
+      100% -100%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--space-blue);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--astro-cyan);
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4),
+    0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.glow-amber {
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+.glow-red {
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5), 0 0 20px rgba(239, 68, 68, 0.2);
+  animation: pulseRedGlow 1.5s ease-in-out infinite;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.4),
+    0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.glow-purple {
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+@keyframes pulseRedGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5),
+      0 0 20px rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.7),
+      0 0 40px rgba(239, 68, 68, 0.3);
+  }
+}
+
+/* Glass morphism panel */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 58, 95, 0.5);
+  border-radius: 12px;
+}
+
+.glass-panel-sm {
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(30, 58, 95, 0.3);
+  border-radius: 8px;
+}
+
+/* Status badge */
+.status-badge {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider;
+}
+
+.status-nominal {
+  @apply bg-astro-green/15 text-astro-green;
+}
+
+.status-caution {
+  @apply bg-astro-amber/15 text-astro-amber;
+}
+
+.status-critical {
+  @apply bg-astro-red/15 text-astro-red;
+}
+
+/* Card hover */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.1);
+}
+
+/* Confetti */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confettiFall 1.5s ease-out forwards;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--astro-cyan), var(--astro-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 58, 95, 0.3) 25%,
+    rgba(30, 58, 95, 0.6) 50%,
+    rgba(30, 58, 95, 0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Recharts overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(30, 58, 95, 0.4);
+}
+
+.recharts-text {
+  fill: #9ca3af;
+  font-size: 11px;
+}
