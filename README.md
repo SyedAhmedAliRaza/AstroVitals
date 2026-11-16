@@ -34,7 +34,7 @@ AstroVitals deploys an **onboard autonomous AI Flight Surgeon** that pairs conti
    - Interactive Recharts visualizations with 24-hour, 7-day, and 30-day views plotted directly against shaded **NASA-STD-3001** clinical boundaries.
 
 3. **Autonomous Gemini AI Flight Surgeon & RAG Triage:**
-   - Powered by `gemini-2.5-flash` with strict Pydantic `response_schema` structured outputs.
+   - Powered by `gemini-3.8-flash` with strict Pydantic `response_schema` structured outputs.
    - RAG grounding using `text-embedding-004` and PostgreSQL `pgvector(768)` indexing NASA-STD-3001, CSA guidelines, and HRP 5 Hazards.
    - **Mars OWLT Delay Simulator Toggle:** Switch between 0-second LEO and 22-minute Mars speed-of-light delay to demonstrate why onboard autonomous AI is indispensable.
 
