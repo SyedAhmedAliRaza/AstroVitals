@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Next.js-15%20(App%20Router)-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15" />
   <img src="https://img.shields.io/badge/FastAPI-Python%203.11-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Tiger%20Data-TimescaleDB%20%2B%20pgvector-FDB515?style=for-the-badge&logo=postgresql&logoColor=black" alt="Tiger Data" />
-  <img src="https://img.shields.io/badge/Gemini%202.5-Autonomous%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini AI" />
+  <img src="https://img.shields.io/badge/Gemini%203.8-Autonomous%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini AI" />
   <img src="https://img.shields.io/badge/Twilio-Emergency%20Comms-F22F46?style=for-the-badge&logo=twilio&logoColor=white" alt="Twilio" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
 </p>

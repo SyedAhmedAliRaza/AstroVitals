@@ -729,7 +729,7 @@ async def evaluate_diagnostics(
     ]
 
     settings = get_settings()
-    model_used = "gemini-2.5-flash" if not settings.DEMO_MODE and settings.GEMINI_API_KEY else "demo-mock"
+    model_used = "gemini-3.8-flash" if not settings.DEMO_MODE and settings.GEMINI_API_KEY else "demo-mock"
 
     diag_result = await evaluate_astronaut_health(vitals_dict, osdr, protocols)
 

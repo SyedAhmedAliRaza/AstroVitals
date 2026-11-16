@@ -98,7 +98,7 @@ export default function GeminiTriage({
               <Brain className="w-5 h-5 animate-pulse" />
             </div>
             <h3 className="text-base font-bold text-slate-100 font-mono tracking-wide">
-              GEMINI 2.5 FLASH AUTONOMOUS FLIGHT SURGEON
+              GEMINI 3.8 FLASH AUTONOMOUS FLIGHT SURGEON
             </h3>
           </div>
           <p className="text-xs text-slate-400 font-mono mt-0.5">

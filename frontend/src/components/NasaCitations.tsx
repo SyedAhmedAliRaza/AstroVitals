@@ -40,7 +40,7 @@ export default function NasaCitations({
     },
     {
       name: "Google Gemini AI",
-      subtitle: "gemini-2.5-flash & text-embedding-004",
+      subtitle: "gemini-3.8-flash & text-embedding-004",
       description: "Autonomous diagnostic engine using structured JSON response_schema and pgvector RAG grounding.",
       status: "OPERATIONAL",
       statusColor: "text-emerald-400 bg-emerald-500/20 border-emerald-500/40",

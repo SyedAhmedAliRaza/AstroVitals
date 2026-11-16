@@ -189,7 +189,7 @@ export default function LandingPage() {
               <Brain className="w-5 h-5" />
             </div>
             <h3 className="text-sm font-bold font-mono text-slate-100">
-              Gemini 2.5 Autonomous Triage
+              Gemini 3.8 Autonomous Triage
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               Structured diagnostic JSON response schema evaluating telemetry deviations against

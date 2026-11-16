@@ -113,7 +113,7 @@ export default function Sidebar({
         <div className="p-2.5 rounded-lg bg-cyan-950/30 border border-cyan-800/30 flex items-center justify-between text-xs">
           <div className="flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="text-slate-300 font-mono text-[11px]">Gemini 2.5 Flash</span>
+            <span className="text-slate-300 font-mono text-[11px]">Gemini 3.8 Flash</span>
           </div>
           <span className="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 font-mono">
             RAG ONLINE
