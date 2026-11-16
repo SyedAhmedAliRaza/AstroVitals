@@ -55,7 +55,7 @@ AstroVitals deploys an **onboard autonomous AI Flight Surgeon** that pairs conti
 | **Frontend** | Next.js 15, TypeScript, Tailwind CSS, Framer Motion, Recharts | Interactive Mission Control dashboard, anatomical SVG, telemetry charts |
 | **Backend API** | Python 3.11, FastAPI, Pydantic v2, SQLAlchemy, asyncpg | High-throughput REST API, clinical evaluation engine, background workers |
 | **Database (Tiger Data)** | PostgreSQL 16 + TimescaleDB 2.16 + pgvector | `vital_telemetry` hypertables + `nasa_medical_knowledge` vector embeddings (768-dim) |
-| **AI Reasoning** | Google Gemini API (`gemini-2.5-flash`, `text-embedding-004`) | Deterministic clinical JSON triage, countermeasure planning, self-exam guidance |
+| **AI Reasoning** | Google Gemini API (`gemini-3.8-flash`, `text-embedding-004`) | Deterministic clinical JSON triage, countermeasure planning, self-exam guidance |
 | **Identity & RBAC** | Auth0 SDK + FastAPI JWT Bearer verification | 3-Role RBAC: `astronaut`, `crew_medical_officer`, and `flight_surgeon` |
 | **Communications** | Twilio Python SDK (`twilio`) | Automated SMS/WhatsApp/Voice alerts for critical vitals and DONKI radiation storms |
 | **Infrastructure** | Docker Compose, Caddy Reverse Proxy, Vultr Cloud | Automated TLS, container orchestration, pre-configured for `astrovitals.health` |
@@ -108,5 +108,3 @@ docker compose up --build -d
 ## 📜 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-Developed for the **2026 NASA Space Apps Challenge** by **Syed Ahmed Ali Raza**.
